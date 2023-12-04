@@ -49,6 +49,6 @@ void TStack<T>::print()
 }
 
 int main(){
-  printf("hello world!");
+  printf("hiiiii!");
   return 0;
 }
