@@ -10,6 +10,7 @@ class LinkedList
 
 public:
     LinkedList();
+    ~LinkedList();
     void add(T val);
     void insert(T val, int pos);
     T get(int pos);
@@ -24,7 +25,17 @@ LinkedList<T>::LinkedList()
     tail = head = NULL;
     len = 0;
 }
-// add member function
+
+template <typename T>
+LinkedList<T>::~LinkedList()
+{
+    int i = 0;
+    while (this->head != NULL)
+    {
+        delete1(i);
+    }
+}
+
 template <typename T>
 void LinkedList<T>::add(T val)
 {
@@ -177,7 +188,7 @@ void LinkedList<T>::print()
         cout << tmp->val->area() << " ";
         tmp = tmp->next;
     }
-    cout << "]";
+    cout << "]" << endl;
 }
 
 #endif

@@ -6,10 +6,15 @@ class Shape
 {
 public:
     string name;
+    Shape()
+    {
+        this->name = "def";
+    }
     Shape(string name)
     {
         this->name = name;
     }
+
     // Pure virtual functions
     virtual double area() = 0;
     virtual double perimeter() = 0;

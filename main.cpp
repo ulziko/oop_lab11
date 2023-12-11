@@ -6,44 +6,38 @@
 #include "two_d_shape.h"
 #include <cstdlib>
 #include <ctime>
+#include <iomanip>
 #include <iostream>
 using namespace std;
 
 int main()
 {
   LinkedList<_2D *> list_of_shapes;
-  srand(static_cast<unsigned int>(time(0)));
-  int objNumber;
-  objNumber = rand() % 10 + 1;
-  cout << "objNumber: " << objNumber << endl;
-  for (int i = 1; i <= objNumber; i++)
+  cout << setprecision(2) << fixed;
+  Circle c[10];
+  Square s[10];
+  Triangle t[10];
+  for (int i = 0; i < 30; i++)
   {
-    string ShapeName = "sq" + to_string(i);
-    double side_l = static_cast<double>(rand()) / RAND_MAX * 20;
-    Square *sq = new Square(ShapeName, side_l);
-    list_of_shapes.add(sq);
-  }
-  objNumber = rand() % 10 + 1;
-  cout << "objNumber: " << objNumber << endl;
-  for (int i = 1; i <= objNumber; i++)
-  {
-    string ShapeName = "tr" + to_string(i);
-    double side_l = static_cast<double>(rand()) / RAND_MAX * 20;
-    Triangle *tr = new Triangle(ShapeName, side_l);
-    list_of_shapes.add(tr);
-  }
-  objNumber = rand() % 10 + 1;
-  cout << "objNumber: " << objNumber << endl;
-  for (int i = 1; i <= objNumber; i++)
-  {
-    string ShapeName = "tr" + to_string(i);
-    double side_l = static_cast<double>(rand()) / RAND_MAX * 20;
-    Circle *cc = new Circle(ShapeName, side_l);
-    list_of_shapes.add(cc);
+    if (i < 10)
+    {
+      list_of_shapes.add(&c[i]);
+      c[i].printer();
+    }
+    else if (i < 20)
+    {
+      list_of_shapes.add(&s[i - 10]);
+      s[i - 10].printer();
+    }
+    else
+    {
+      list_of_shapes.add(&t[i - 20]);
+      s[i - 20].printer();
+    }
   }
   cout << "Erembelegdeegui ued\n";
   list_of_shapes.print();
   list_of_shapes.sort();
-  cout << "\nUsuhuur erembelsnii daraa\n";
+  cout << "Usuhuur erembelsnii daraa\n";
   list_of_shapes.print();
 }
