@@ -1,17 +1,18 @@
 #ifndef NODE_H
 #define NODE_H
-#include <iostream>
-#include <vector>
-
-using namespace std;
-template <class T>
-class Node
+template <typename T>
+class node
 {
-protected:
-    T val;
-    Node *next;
-
 public:
-    Node();
+    node *next;
+    T val;
+    node(T val);
 };
+template <typename T>
+node<T>::node(T val)
+{
+    next = NULL;
+    this->val = val;
+}
+
 #endif
